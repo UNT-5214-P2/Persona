@@ -4,13 +4,13 @@ import os
 # Imports the Google Cloud client library
 from google.cloud import speech_v1p1beta1 as speech
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'Path to json file'
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "E:\dm0469/Documents\TEXTBOOKS\MSAI\Fall 2020\CSCE 5214\Persona\persona_key.json"
 
 # Instantiates a client
 client = speech.SpeechClient()
 
 # The name of the audio file to transcribe
-file_name = 'Path to audio file'
+file_name = 'E:\dm0469\Documents\TEXTBOOKS\MSAI\Fall 2020\CSCE 5214\Persona\\interaction1.wav'
 
 # Loads the audio into memory
 with io.open(file_name, "rb") as audio_file:
@@ -36,7 +36,19 @@ result = response.results[-1]
 
 words_info = result.alternatives[0].words
 
+'''This is the original print statement
+from the Google API'''
 # Printing out the output:
+for word_info in words_info:
+    print(f"word: '{word_info.word}', speaker_tag: {word_info.speaker_tag}")
+
+
+
+'''Our own print statment'''
+print('\n')
+
+# Printing out the output:
+
 speaker_tags = []
     
 for word_info in words_info:

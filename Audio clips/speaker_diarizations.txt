@@ -1,0 +1,190 @@
+
+**Audio_1**
+- 00:00-00:46
+
+Normalized Labels: {2: 0, 3: 1, 1: 2, 5: 3}
+
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+ 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0, 2, 0, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1, 1, 1, 1, 1, 3, 3, 3, 3] 
+
+Yeah we had a long discussion about how much how easy we want to make it for people to bleep things out So Morgan wants to make
+ it hard It it doesn't Did did did it I didn't even check yesterday It didn't whether move it was yesterday moving either when I
+ started it So So I don't know if it doesn't like both Channel of three us Channel three You know I discovered something yesterday
+ on these um wireless Channel ones Mm two hmm You can tell if it picking up breath noise and stuff Yeah it has a little indicator
+ Mm on it on hmm the AF So if you yeah if you breathe under breathe and then you see AF go off then you know it picking up your 
+ mouth noise Oh that good Cuz
+
+--------------------------------------------
+
+**Audio_2**
+- 41:00-41:46
+
+Normalized Labels: {3: 0, 1: 1}
+
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,
+ 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] 
+
+I mean uh you told So when your task is I don't know Go buy stamps or something like that So do
+ you have to respond or does your Uh what are you what are you supposed to be telling the system
+ Like what you doing now or Well we see what people do There no OK so it just like Let figure out
+ what they would say Yeah under and the circumstances and we will record both sides I mean we will
+ record the Wi the Wizard Uh huh Uh I mean huh in both cases it gonna be a human in the computer
+ and in the operator case And we will there will be some dialogue you know So you first have to
+ Yep do this and that and and Mm see what hmm they say We can instruct the uh wizard in how
+ expressive and talkative he should be But um maybe the maybe what you 're
+
+--------------------------------------------
+
+**Audio_3**
+- 41:00-41:46
+
+Normalized Labels: {0: 0, 1: 1}
+
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] 
+
+to the castle Oh how how much is it and um yeah I would like uh um to let do it and so forth So
+ even without an anaphora somebody has to make sure that information we had earlier on is still
+ here Mm hmm Because not every module keeps a memory of everything that happened so whenever the
+ uh um person is not actually rejecting what happened before so as in No I really don't want to
+ see that movie I rather stay home and watch TV um What movie was selected in what cinema in what
+ town is is going to be sort of added into the into the representations every at each dialogue
+ step by the discourse model discourse model Yeah that
+
+--------------------------------------------
+
+**Audio_4**
+- 41:00-41:46
+
+Normalized Labels: {1: 0, 0: 1, 3: 2}
+
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] 
+
+one but that there uh that that it doesn't have to be one zero zero Mmm OK OK So you could have
+ the conditional So the each of these things is gonna be a a a probability So whenever there a
+ choice uh so like landmark and usefulness Well OK see I don't think those would be mutually it
+ seems like something could both be Absolutely right OK And so that you might want to then have
+ those Th Then they may have to be separate They may not be able to be values of the same
+ variable Object type mm hmm So that but again this is this is the sort of knowledge design you
+ have to go through Right
+
+--------------------------------------------
+
+**Audio_5**
+- 41:00-41:46
+
+Normalized Labels: {3: 0, 1: 1, 2: 2, 5: 3, 4: 4, 0: 5}
+
+[0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 4, 1, 0, 1, 0, 0, 0,
+ 1, 0, 0, 1, 1, 1, 1, 1, 3, 0, 5, 5, 5, 5] 
+
+you know multiple inputs to a node Good And what the other one so that just we know what the
+ agenda is Um the Wu paper I think maybe Oh yeah I got a couple new Wu papers as well Uh so I
+ I been in contact with Wu so probably let put that off till I I till I understand better uh
+ what he doing It just a little embarrassing cause all this was in his thesis and I was on his
+ thesis committee and so Ugh I really knew this at one time But I I It not only uh Is Part of
+ what I haven't figured out yet is is how all this goes together So I dig up some more stuff from
+ Dekai And so why don't we just do the uh OK So should I Is there a white board here that I can
+ use Yeah Uh You Yeah could Or squealing shall I just sound use this It probably just as easy
+ Yeah Yeah You can put the
+
+--------------------------------------------
+
+**Audio_6**
+- 41:00-41:46
+
+Normalized Labels: {6: 0, 2: 1, 4: 2, 0: 3}
+
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+ 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1,
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 2, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 2, 0, 0, 2, 3, 2, 0, 0, 0, 0, 3, 0, 0, 3, 3, 3, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+ 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
+ 2, 3, 3] 
+
+which is to me a reason why you would keep the inference of that separate from the knowledge of
+ OK they really want to know if there a bakery around here Yeah which is direct Well there there
+ there should never be a hard coded uh shortcut from the bakery question to the uh double schema
+ Right thing how uh And as a matter of fact when I have traveled with my friends we make these
+ exactly Mm these hmm kinds of appointments Yeah Mm Exactly We hmm It I met someone at the bakery
+ you know in the Victoria Station Mm you know hmm Right Yep train station London before Well yeah
+ It I have a like question about the slot of the SPG action So the Enter the the the EVA um those
+ are fixed slots in this particular action Every action of this kind will have a choice Or or or
+ or will it just um uh Every is it
+
+--------------------------------------------
+
+**Audio_8**
+- 35:00-35:46
+- NOTE: Audio_7 IS SKIPPED
+
+Normalized Labels: {2: 0, 3: 1, 1: 2, 4: 3, 0: 4}
+
+[0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+ 2, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2,
+ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3,
+ 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3] 
+
+backwards Right Right But it there two advantages one is the technical one that you don't wind
+ Bhaskara up with such big exponential uh CBT the other is it can be it presumably can be used
+ for multiple decisions Mm hmm So that if you have this idea Right of the compatibility with the
+ requirements of an action to the state of the user one could well imagine that that was not only
+ is it is it cleaner to compute it separately but it could be that it used in multiple places
+ Anyway Yeah so in general this is the design this is really design problem OK you got a signal
+ a set of decisions um how do we do this What do I have under user state anyhow cuz I named that
+ already something Oh that tired fresh
+
+--------------------------------------------
+
+**Audio_9**
+- 41:00-41:46
+
+Normalized Labels: {5: 0, 3: 1}
+
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
+ 1, 1, 0, 1, 0, 1] 
+
+big believer in this um statistical you know cleaning up uh It That seems to me kind of a last
+ resort if uh you can't do it any other way uh but I dunno It may Hmm may be that what you guys
+ finally decide do Uh And have you looked uh just again for context Mm There is this this one
+ that they did at SRI some years ago Fastus um a yeah I 've I 've looked at it but but it no not
+ much uh information available ah I found but it also finite transducers It I is thought
+
+--------------------------------------------
+
+**Audio_10**
+- 35:00-35:46
+
+Normalized Labels: {2: 0, 1: 1, 0: 2, 5: 3}
+
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 2, 3, 3, 3, 2, 2, 3, 2, 3, 2, 2, 0, 2, 0, 1, 0] 
+
+But here the the amazing result um they say You get someone with a with a deficit so that they
+ have a perfectly normal ability at distance things So the typical task is subdivision So there
+ a a line on the wall over there and you give them a laser pointer and you say Where the midpoint
+ And they do fine If you give them the line and they have to touch it they can't There just that
+ part of the brain isn't functioning so they can't do that Here the real experiment The same
+ thing on the wall you give them a laser where is it they do it Mm Give hmm them a stick long
+ stick and say do it they can't do it So there a remapping of distant space into nearby Right
+ space So they doubled Because it within the the reach end now the end It of not Yeah within
