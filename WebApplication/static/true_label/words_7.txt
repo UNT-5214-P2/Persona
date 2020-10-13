@@ -1,0 +1,8 @@
+backwards Right Right But it there two advantages one is the technical one that you don't wind
+ Bhaskara up with such big exponential uh CBT the other is it can be it presumably can be used
+ for multiple decisions Mm hmm So that if you have this idea Right of the compatibility with the
+ requirements of an action to the state of the user one could well imagine that that was not only
+ is it is it cleaner to compute it separately but it could be that it used in multiple places
+ Anyway Yeah so in general this is the design this is really design problem OK you got a signal
+ a set of decisions um how do we do this What do I have under user state anyhow cuz I named that
+ already something Oh that tired fresh
