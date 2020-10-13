@@ -50,7 +50,7 @@ def showTestLabel (id) :
 def showGoogle (id) :
     if request.method == 'POST' :
         words, speakerIds, randScore = google_api(id)
-        return render_template("index.html", Audios = Audios, audio_files = audio_files, id = int(id), which = "google")
+        return render_template("index.html", Audios = Audios, audio_files = audio_files, id = int(id), which = "google", words = words, speakerIds = speakerIds, randScore = randScore)
 
 @app.route('/amazonAPI<id>', methods=['POST'])
 def showAmazon (id) :
@@ -67,7 +67,7 @@ def showAzure (id) :
 
 def google_api(id):
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(app.config['API_KEYS'],'Google_Api_Key.json')
-    
+    id=str(id)
     audio_file_name = r"interaction" + id + ".wav"
     audio_file_path = os.path.join(app.config['AUDIO_FILES'], audio_file_name)
     
@@ -87,7 +87,7 @@ def google_api(id):
         sample_rate_hertz=16000,
         language_code="en-US",
         enable_speaker_diarization=True,
-        diarization_speaker_count=3
+        #diarization_speaker_count=3
     )
     
     # print("Waiting for operation to complete...\n")
@@ -150,6 +150,8 @@ def google_api(id):
     return text, speaker_tags_normalized, adjusted_rand_score(speaker_tags_normalized, true_label_speaker_id)
 
     
+
+
 
 
 #def amazon_api(id):
