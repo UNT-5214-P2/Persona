@@ -1,41 +1,54 @@
 <html>
     <head>
         <title>Persona</title>
+        
         <link rel='stylesheet' href="{{ url_for('static', filename='font-awesome-4.7.0/css/font-awesome.min.css')}}">
+        <link rel='stylesheet' href="{{ url_for('static', filename='css/style_persona.css')}}">
     </head>
 
     <body>
+        <a href="{{ url_for('get_rand') }}">What is rand index?</a>
         {% for file in audio_files %}
             <h1>{{Audios[loop.index - 1]}}</h1> <!-- loop.index shows what iteration of the loop is occuring. Therefore on the first loop, loop.index is going to equal 1 which would mean the first header would be Audios[1], meaning it would skip Audios [0] so we do Audios[loop.index - 1] -->
-            <audio controls>
-                <source src="{{ url_for('static', filename='/wav/' + file) }}" type="audio/wav">
-            </audio>
-            <form action="/testlabel{{loop.index}}" method="post" enctype="multipart/form-data">
-                <input type="submit" value="Test Label" name="testLabel" />
-            </form>
-            <form action="/googleAPI{{loop.index}}" method="post" enctype="multipart/form-data">
-                <input type="submit" value="Google API" name="google" />
-            </form>
-            <form action="/amazonAPI{{loop.index}}" method="post" enctype="multipart/form-data">
-                <input type="submit" value="Amazon API" name="amazon" />
-            </form>
-            <form action="/azureAPI{{loop.index}}" method="post" enctype="multipart/form-data">
-                <input type="submit" value="Azure API" name="azure" />
-            </form>
-            {% if loop.index == id %} <!-- In app.py we have to convert test_id to int in order to see if loop.index is equal to it. Originally test_id is a string -->
-                {% if which == "true" %}
-                    <pre>{{content}}</pre>
-                {% endif %}
-                {% if which == "google" %}
-                    <p>This is the Google API output for Audio {{id}}</p>
-                {% endif %}
-                {% if which == "amazon" %}
-                    <p>This is the Amazon API output for Audio {{id}}</p>
-                {% endif %}
-                {% if which == "azure" %}
-                    <p>This is the Azure API output for Audio {{id}}</p>
-                {% endif %}
-            {%endif%}
+            <div class="button-outer">
+                <audio controls>
+                    <source class="inner" src="{{ url_for('static', filename='/wav/' + file) }}" type="audio/wav">
+                </audio>
+                <form class="inner" action="/testlabel{{loop.index}}" method="post" enctype="multipart/form-data">
+                    <input type="submit" value="Test Label" name="testLabel" />
+                </form>
+                <form class="inner" action="/googleAPI{{loop.index}}" method="post" enctype="multipart/form-data">
+                    <input type="submit" value="Google API" name="google" />
+                </form>
+                <form class="inner" action="/amazonAPI{{loop.index}}" method="post" enctype="multipart/form-data">
+                    <input type="submit" value="Amazon API" name="amazon" />
+                </form>
+                <form class="inner" action="/azureAPI{{loop.index}}" method="post" enctype="multipart/form-data">
+                    <input type="submit" value="Azure API" name="azure" />
+                </form>
+            </div>
+                {% if loop.index == id %} <!-- In app.py we have to convert test_id to int in order to see if loop.index is equal to it. Originally test_id is a string -->
+                    {% if which == "true" %}
+                        <h1>Speaker IDs</h1>
+                        <pre>{{speakerIds}}</pre>
+                        <h1>Words</h1>
+                        <pre>{{words}}</pre>
+                    {% endif %}
+                    {% if which == "google" %}
+                        <p>This is the Google API output for Audio {{id}}</p>
+                    {% endif %}
+                    {% if which == "amazon" %}
+                        <p>This is the Amazon API output for Audio {{id}}</p>
+                    {% endif %}
+                    {% if which == "azure" %}
+                        <p>This is the Azure API output for Audio {{id}}</p>
+                    {% endif %}
+                {%endif%}
         {%endfor%}
+
+        <footer class="footer">
+            <p>Credits: Naga Sumanth, Nicolas Stencel, Daniel Mata, Andy Fausak</p>
+            <p>© 2020, University of North Texas </p>
+        </footer>
     </body>
 </html>
