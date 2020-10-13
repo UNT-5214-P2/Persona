@@ -1,6 +1,9 @@
 from flask import Flask
 from flask import request
 from flask import render_template
+from google.cloud import speech_v1p1beta1 as speech
+from sklearn.metrics.cluster import adjusted_rand_score
+import io
 import os
 import logging
 
@@ -64,8 +67,89 @@ def showAzure (id) :
 
 def google_api(id):
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(app.config['API_KEYS'],'Google_Api_Key.json')
-    audio_file_name = "interaction" + id + ".wav"
+    
+    audio_file_name = r"interaction" + id + ".wav"
     audio_file_path = os.path.join(app.config['AUDIO_FILES'], audio_file_name)
+    
+    true_label_file_name = r'speaker_id_' + id + '.txt'
+    true_label_path = os.path.join(app.config['TRUE_LABEL'], true_label_file_name) 
+    
+        # Instantiates a client
+    client = speech.SpeechClient()
+
+    # Loads the audio into memory
+    with io.open(audio_file_path, "rb") as audio_file:
+        content = audio_file.read()
+        audio = speech.RecognitionAudio(content=content)
+    
+    config = speech.RecognitionConfig(
+        encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
+        sample_rate_hertz=16000,
+        language_code="en-US",
+        enable_speaker_diarization=True,
+        diarization_speaker_count=3
+    )
+    
+    # print("Waiting for operation to complete...\n")
+    response = client.recognize(request={"config": config, "audio": audio})
+    
+    # The transcript within each result is separate and sequential per result.
+    # However, the words list within an alternative includes all the words
+    # from all the results thus far. Thus, to get all the words with speaker
+    # tags, you only have to take the words list from the last result:
+    result = response.results[-1]
+    words_info = result.alternatives[0].words
+    
+    # Filling list of transcribed words
+    list_of_words = []
+    
+    for word_info in words_info:
+        list_of_words.append(word_info.word)
+    
+    # initialize an empty string  for text output
+    string = " " 
+    text = string.join(list_of_words)
+    
+    # Creating list of labels
+    speaker_tags = []
+        
+    for word_info in words_info:
+        speaker_tags.append(word_info.speaker_tag)   
+    
+    # Create new-labels dictionary for speaker tags
+    speaker_tags_dict = {}
+    counter = 0
+    
+    for tag in speaker_tags:
+        if tag in speaker_tags_dict:
+            continue
+        else:
+            speaker_tags_dict[tag] = counter
+            counter += 1
+
+    # Normalize speaker tags
+    speaker_tags_normalized = [speaker_tags_dict[tag] for tag in speaker_tags]
+    
+    # True Labels
+    speaker_id_file = open(true_label_path, 'r')
+    true_label_id = speaker_id_file.read()
+    true_label_speaker_id = []
+    
+    for c in true_label_id.split(','):
+        n = int(c)
+        true_label_speaker_id.append(n)
+    
+    # Setting length of label lists equal
+    if len(speaker_tags_normalized) < len(true_label_speaker_id):
+        length = len(speaker_tags_normalized)
+        true_label_speaker_id = true_label_speaker_id[:length]
+    else:
+        length = len(true_label_speaker_id)
+        speaker_tags_normalized = speaker_tags_normalized[:length]
+    
+    return text, speaker_tags_normalized, adjusted_rand_score(speaker_tags_normalized, true_label_speaker_id)
+
+    
 
 
 #def amazon_api(id):
