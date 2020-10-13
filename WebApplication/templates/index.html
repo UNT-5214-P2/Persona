@@ -35,7 +35,12 @@
                         <pre>{{words}}</pre>
                     {% endif %}
                     {% if which == "google" %}
-                        <p>This is the Google API output for Audio {{id}}</p>
+                        <h1>Words</h1>
+                        <pre>{{words}}</pre>
+                        <h1>Speaker IDs</h1>
+                        <pre>{{speakerIds}}</pre>
+                        <h1>Rand Score</h1>
+                        <pre>{{randScore}}</pre>
                     {% endif %}
                     {% if which == "amazon" %}
                         <p>This is the Amazon API output for Audio {{id}}</p>
