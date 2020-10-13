@@ -7,6 +7,7 @@ import logging
 app = Flask(__name__)
 app.config['API_KEYS'] = './API_KEYS/'
 app.config['AUDIO_FILES'] = './static/wav/'
+app.config['TRUE_LABEL'] = './static/true_label/'
 
 # This part is needed for the showTestLabel function. When we open text files in flask, unlike the Jinja HTML, it isn't smart enough to know that it is in the current flask directory. So you can't specify relative paths and expect it to know what you're talking about. When you type: 'static/true_label/...' it's not going to look for the static folder inside the current directory, it is going to look for it like this 'C:\static\true_label'. It looks at absolute paths, and thus won't find anything. Here we are defining the absolute path in such a way that anybody running this code will be able to use it without problem
 
@@ -15,8 +16,8 @@ TRUE_LABEL_FOLDER = os.path.join(APP_ROOT, 'static/true_label')
 app.config['TRUE_LABEL_FOLDER'] = TRUE_LABEL_FOLDER
 
 
-Audios = ["Audio 1", "Audio 2", "Audio 3", "Audio 4", "Audio 5", "Audio 6", "Audio 7", "Audio 8", "Audio 9", "Audio 10"]
-audio_files = ["interaction1.wav", "interaction2.wav", "interaction3.wav", "interaction4.wav", "interaction5.wav", "interaction6.wav", "interaction7.wav", "interaction8.wav", "interaction9.wav", "interaction10.wav"]
+Audios = ["Audio 1", "Audio 2", "Audio 3", "Audio 4", "Audio 5", "Audio 6", "Audio 7", "Audio 8", "Audio 9"]
+audio_files = ["interaction1.wav", "interaction2.wav", "interaction3.wav", "interaction4.wav", "interaction5.wav", "interaction6.wav", "interaction7.wav", "interaction8.wav", "interaction9.wav"]
 
 @app.route('/')
 def index() :
@@ -29,6 +30,12 @@ def showTestLabel (id) :
     # when you use request remember to import it
         with open(TRUE_LABEL_FOLDER + '/true_label' + id + '.txt', "r") as f:
             content = f.read()
+        
+        word_file_name = "words_" + id + ".txt"
+        words = os.path.join(app.config['TRUE_LABEL'], word_file_name)
+        speaker_ids_file_name = "speaker_id_" + id + ".txt"
+        speakerIds = os.path.join(app.config['TRUE_LABEL'], speaker_ids_file_name)
+
         return render_template("index.html", Audios = Audios, audio_files = audio_files, id = int(id), which = "true", content = content) # id is a string taken from the url, we have to convert to int in order to compare it to loop.index in the html
         
 @app.route('/googleAPI<id>', methods=['POST'])
