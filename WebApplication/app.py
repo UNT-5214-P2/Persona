@@ -59,12 +59,6 @@ def showAmazon (id) :
         # words, speakerIds, randScore - add this to render_template down below
         return render_template("index.html", Audios = Audios, audio_files = audio_files, id = int(id))
 
-@app.route('/azureAPI<id>', methods=['POST'])
-def showAzure (id) :
-    if request.method == 'POST' :
-        return render_template("index.html", Audios = Audios, audio_files = audio_files, id = int(id), which = "azure")
-
-
 def google_api(id):
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(app.config['API_KEYS'],'Google_Api_Key.json')
     id=str(id)
