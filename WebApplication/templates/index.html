@@ -15,16 +15,13 @@
                     <source class="inner" src="{{ url_for('static', filename='/wav/' + file) }}" type="audio/wav">
                 </audio>
                 <form class="inner" action="/testlabel{{loop.index}}" method="post" enctype="multipart/form-data">
-                    <input type="submit" value="Test Label" name="testLabel" />
+                    <input type="submit" value="True Label" name="testLabel" />
                 </form>
                 <form class="inner" action="/googleAPI{{loop.index}}" method="post" enctype="multipart/form-data">
                     <input type="submit" value="Google API" name="google" />
                 </form>
                 <form class="inner" action="/amazonAPI{{loop.index}}" method="post" enctype="multipart/form-data">
                     <input type="submit" value="Amazon API" name="amazon" />
-                </form>
-                <form class="inner" action="/azureAPI{{loop.index}}" method="post" enctype="multipart/form-data">
-                    <input type="submit" value="Azure API" name="azure" />
                 </form>
             </div>
                 {% if loop.index == id %} <!-- In app.py we have to convert test_id to int in order to see if loop.index is equal to it. Originally test_id is a string -->
