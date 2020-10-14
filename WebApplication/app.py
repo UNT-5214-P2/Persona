@@ -1,3 +1,4 @@
+from __future__ import print_function
 from flask import Flask
 from flask import request
 from flask import render_template
@@ -6,6 +7,11 @@ from sklearn.metrics.cluster import adjusted_rand_score
 import io
 import os
 import logging
+import time
+import boto3
+import uuid
+import requests
+import json
 
 app = Flask(__name__)
 app.config['API_KEYS'] = './API_KEYS/'
@@ -55,9 +61,8 @@ def showGoogle (id) :
 @app.route('/amazonAPI<id>', methods=['POST'])
 def showAmazon (id) :
     if request.method == 'POST' :
-        words, speakerIds, randScore = amazon_api(id) 
-        # words, speakerIds, randScore - add this to render_template down below
-        return render_template("index.html", Audios = Audios, audio_files = audio_files, id = int(id))
+        words, speakerIds, randScore = amazon_api(id)
+        return render_template("index.html", Audios = Audios, audio_files = audio_files, id = int(id), which = "amazon", words = words, speakerIds = speakerIds, randScore = randScore)
 
 def google_api(id):
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(app.config['API_KEYS'],'Google_Api_Key.json')
@@ -146,6 +151,67 @@ def google_api(id):
     
 
 
+def amazon_api(id):
+    transcribe = boto3.client('transcribe')
+    job_name = str(uuid.uuid4()) + 'job' + id
+    job_uri = 'https://5214-p2-project.s3.amazonaws.com/interaction' + id + '.wav'
+    transcribe.start_transcription_job(
+      TranscriptionJobName=job_name,
+      Media= {'MediaFileUri': job_uri},
+      MediaFormat= 'wav',
+      LanguageCode= 'en-US',
+      MediaSampleRateHertz= 16000,
+    Settings = {
+          'ShowSpeakerLabels': True,
+          'MaxSpeakerLabels': 3
+          }
+    )
+    while True:
+      status = transcribe.get_transcription_job(TranscriptionJobName=job_name)
+      if status['TranscriptionJob']['TranscriptionJobStatus'] in ['COMPLETED', 'FAILED']:
+          break
+      print("Not ready yet...")
+      time.sleep(10)
 
+    output_url = status['TranscriptionJob']['Transcript']['TranscriptFileUri']
+    download_filename = uuid.uuid4()
+    download_filename = str(download_filename) + '.json'
 
-#def amazon_api(id):
+    response = requests.get(output_url, allow_redirects=True)
+    open(download_filename, 'wb').write(response.content)
+
+    with open(download_filename) as f:
+        data = json.load(f)
+
+    list_of_items = data['results']['items']
+    words_pronounced = []
+
+    for item in list_of_items:
+        if item['type'] == 'pronunciation':
+            words_pronounced.append(item['alternatives'][0]['content'])
+
+    speaker_segments = data['results']['speaker_labels']['segments']
+    predicted_speaker_ids = []
+
+    for segment in speaker_segments:
+        segment_items = segment['items']
+        for item in segment_items:
+            speaker_label = item['speaker_label']
+            predicted_speaker_ids.append(int(speaker_label.split('_')[1]))
+            
+    f = open("./static/true_label/speaker_id_" + id + ".txt", "r")
+    true_speaker_labels = f.read()
+    true_speaker_ids = []
+    for c in true_speaker_labels.split(','):
+        true_speaker_ids.append(int(c.strip()))
+    
+    if(len(true_speaker_ids) < len(predicted_speaker_ids)):
+        required_length = len(true_speaker_ids)
+        predicted_speaker_ids = predicted_speaker_ids[:required_length]
+    else:
+        required_length = len(predicted_speaker_ids)
+        true_speaker_ids = true_speaker_ids[:required_length]
+        
+    rand_score = adjusted_rand_score(true_speaker_ids, predicted_speaker_ids)
+              
+    return words_pronounced, predicted_speaker_ids, rand_score

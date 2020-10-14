@@ -1,54 +1,71 @@
 <html>
     <head>
-        <title>Persona</title>
+        <title>Speaker Diarization - Comparision of commerical cloud speech recognition APIs</title>
         
-        <link rel='stylesheet' href="{{ url_for('static', filename='font-awesome-4.7.0/css/font-awesome.min.css')}}">
-        <link rel='stylesheet' href="{{ url_for('static', filename='css/style_persona.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_persona.css') }}">
     </head>
 
     <body>
-        <a href="{{ url_for('get_rand') }}">What is rand index?</a>
-        {% for file in audio_files %}
-            <h1>{{Audios[loop.index - 1]}}</h1> <!-- loop.index shows what iteration of the loop is occuring. Therefore on the first loop, loop.index is going to equal 1 which would mean the first header would be Audios[1], meaning it would skip Audios [0] so we do Audios[loop.index - 1] -->
-            <div class="button-outer">
-                <audio controls>
-                    <source class="inner" src="{{ url_for('static', filename='/wav/' + file) }}" type="audio/wav">
-                </audio>
-                <form class="inner" action="/testlabel{{loop.index}}" method="post" enctype="multipart/form-data">
-                    <input type="submit" value="True Label" name="testLabel" />
-                </form>
-                <form class="inner" action="/googleAPI{{loop.index}}" method="post" enctype="multipart/form-data">
-                    <input type="submit" value="Google API" name="google" />
-                </form>
-                <form class="inner" action="/amazonAPI{{loop.index}}" method="post" enctype="multipart/form-data">
-                    <input type="submit" value="Amazon API" name="amazon" />
-                </form>
-            </div>
-                {% if loop.index == id %} <!-- In app.py we have to convert test_id to int in order to see if loop.index is equal to it. Originally test_id is a string -->
-                    {% if which == "true" %}
-                        <h1>Speaker IDs</h1>
-                        <pre>{{speakerIds}}</pre>
-                        <h1>Words</h1>
-                        <pre>{{words}}</pre>
-                    {% endif %}
-                    {% if which == "google" %}
-                        <h1>Words</h1>
-                        <pre>{{words}}</pre>
-                        <h1>Speaker IDs</h1>
-                        <pre>{{speakerIds}}</pre>
-                        <h1>Rand Score</h1>
-                        <pre>{{randScore}}</pre>
-                    {% endif %}
-                    {% if which == "amazon" %}
-                        <p>This is the Amazon API output for Audio {{id}}</p>
-                    {% endif %}
-                    {% if which == "azure" %}
-                        <p>This is the Azure API output for Audio {{id}}</p>
-                    {% endif %}
-                {%endif%}
-        {%endfor%}
+        <div id="instructions">
+            <h1>Overview:</h1>
+            <ul>
+            </li>Our Website has below list of 9 audio files sourced from <a href = "http://groups.inf.ed.ac.uk/ami/icsi/download/"> International Computer Science Institute(ICSI) webiste</a>. Labels from this ICSI dataset are consdiered as True Labels. </li>
+            <li>Clicking on 'True Label (ICSI Data)' button below - shows the list of words, Speaker Diarization Ids parsed from the ICSI XML metadata.</li>
+            <li>Clicking on 'Google Speech API' button below - Takes the corresponding audio clip, invokes Google Speech API: From the response; displays (a) Predicted words (b) Predicted Speaker Diarization Ids and (c) Rand score between true label Speaker Ids & Predicted Speaker Ids.
+            </li>
+            <li>Clicking on 'Amazon Transcribe API' button below - Takes the corresponding audio clip, invokes Amazon Transcribe API: From the response; displays (a) Predicted words (b) Predicted Speaker Diarization Ids and (c) Rand score between true label Speaker Ids & Predicted Speaker Ids.
+            </li>
+            <li><a href="{{ url_for('get_rand') }}">What is Rand Score?</a></li>
+            </ul>
+        </div>
+        <div>
+            {% for file in audio_files %}
+                <h2>{{Audios[loop.index - 1]}}</h2> <!-- loop.index shows what iteration of the loop is occuring. Therefore on the first loop, loop.index is going to equal 1 which would mean the first header would be Audios[1], meaning it would skip Audios [0] so we do Audios[loop.index - 1] -->
+                <div class="button-outer">
+                    <audio controls>
+                        <source class="inner" src="{{ url_for('static', filename='/wav/' + file) }}" type="audio/wav">
+                    </audio>
+                    <form class="inner" action="/testlabel{{loop.index}}" method="post" enctype="multipart/form-data">
+                        <input type="submit" value="True Label (ICSI Data)" name="testLabel" />
+                    </form>
+                    <form class="inner" action="/googleAPI{{loop.index}}" method="post" enctype="multipart/form-data">
+                        <input type="submit" value="Google Speech API" name="google" />
+                    </form>
+                    <form class="inner" action="/amazonAPI{{loop.index}}" method="post" enctype="multipart/form-data">
+                        <input type="submit" value="Amazon Transcribe API" name="amazon" />
+                    </form>
+                </div>
+                    {% if loop.index == id %} <!-- In app.py we have to convert test_id to int in order to see if loop.index is equal to it. Originally test_id is a string -->
+                        {% if which == "true" %}
+                            <img src="/static/icsi.jpeg" alt="ICIS logo" width="100" height="100">
+                            <h3>Speaker IDs</h3>
+                            <pre>{{speakerIds}}</pre>
+                            <h3>Words</h3>
+                            <pre>{{words}}</pre>
+                        {% endif %}
+                        {% if which == "google" %}
+                            <img src="/static/googleCloud.jpg" alt="Google Cloud logo" width="100" height="100">
+                            <h3>Google API recognized words:</h3>
+                            <pre>{{words}}</pre>
+                            <h3>Google API recognized speaker Ids</h3>
+                            <pre>{{speakerIds}}</pre>
+                            <h3>Rand Score between True Label SpeakerIds & Google API Recognized Speaker Ids</h3>
+                            <pre>{{randScore}}</pre>
+                        {% endif %}
+                        {% if which == "amazon" %}
+                            <img src="/static/aws-logo.png" alt="AWS logo" width="100" height="100">
+                            <h3>Amazon API recognized words:</h3>
+                            <pre>{{words}}</pre>
+                            <h3>Amazon API recognized speaker Ids</h3>
+                            <pre>{{speakerIds}}</pre>
+                            <h3>Rand Score between True Label SpeakerIds & Amazon API Recognized Speaker Ids</h3>
+                            <pre>{{randScore}}</pre>
+                        {% endif %}
+                    {%endif%}
+            {%endfor%}
+        </div>
 
-        <footer class="footer">
+        <footer>
             <p>Credits: Naga Sumanth, Nicolas Stencel, Daniel Mata, Andy Fausak</p>
             <p>© 2020, University of North Texas </p>
         </footer>
