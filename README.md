@@ -1,4 +1,4 @@
-# Persona - Speaker Recognition
+# Persona - Speaker Diarization
 Overview:
 
 * Our Website has below list of 9 audio files sourced from International Computer Science Institute (ICSI) website. Labels from this ICSI dataset are considered as True Labels.
